@@ -53,3 +53,5 @@ class PriorityQueueSorted:
         
         return result
 
+
+# Q2
