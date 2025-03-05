@@ -20,46 +20,25 @@ class PriorityQueueSorted:
         
         return None
 
-    # copied from lab 3 implementations
+
     def merge_sort(self, arr):
 
         if(len(arr) <= 1):
             return arr
 
         mid = len(arr) // 2
-        
+        left = self.merge_sort(arr[:mid])
+        right = self.merge_sort(arr[mid:])
+
+        return self.merge(left, right)
 
 
-    # copied from lab 3 implementations
-    def merge(self, low, mid, high):
-        left = self[low:mid+1]           # left half of the array
-        right = self[mid+1:high+1]       # right half of the array
+    def merge(self, left, right):
 
-        # pointers to use
-        i = 0
-        j = 0
-        k = low 
+        result = [] 
 
-        while(i < len(left) and j < len(right)):
-            # compare the elements from both arrays
-            if(left[i] <= right[j]):
-                self[k] = left[i]
-                i+=1
-            else:
-                self[k] = right[j]
-                j+=1
-            k+=1
+        i = j = 0
 
-        # copy any remaining elements from left array
-        while(i < len(left)):
-            self[k] = left[i]
-            i+=1
-            k+=1
-
-        # copy any remaining elements from right array
-        while(i < len(right)):
-            self[k] = right[j]
-            j+=1
-            k+=1
-        
-
+        while (i < len(left) and j < len(right)):
+            if(left[i] < right[j]):
+                pass
