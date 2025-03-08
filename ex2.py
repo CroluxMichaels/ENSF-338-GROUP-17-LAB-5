@@ -78,7 +78,7 @@ class PriorityQueueInsert:
             return self.queue.pop(0)
         return None
 
-
+# Q3
 def generate_tasks(n=1000, enqueue_prob=0.7):
     """Generate a list of tasks where enqueue has a probability of 0.7."""
     tasks = []
@@ -100,7 +100,7 @@ def run_tasks(queue_class, tasks):
             pq.dequeue()
 
 
-# Measure performance using timeit
+# Q4
 tasks_list = [generate_tasks() for _ in range(100)]
 
 time_sorted = timeit.timeit(lambda: [run_tasks(PriorityQueueSorted, tasks) for tasks in tasks_list], number=1)
@@ -109,7 +109,8 @@ time_insert = timeit.timeit(lambda: [run_tasks(PriorityQueueInsert, tasks) for t
 print(f"Time taken by PriorityQueueSorted: {time_sorted:.6f} seconds")
 print(f"Time taken by PriorityQueueInsert: {time_insert:.6f} seconds")
 
-# Discussion in comments:
+
+# Q5
 """
 The PriorityQueueInsert implementation is expected to be faster than PriorityQueueSorted.
 The reason is that PriorityQueueSorted appends the value and then sorts the whole list using merge sort (O(n log n)),
