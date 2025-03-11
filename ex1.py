@@ -58,7 +58,6 @@ def main(expression):
     stack = MyArrayStack()
     list = expression.replace('(', ' ( ').replace(')', ' ) ').split()
     list.reverse()
-
     for i in list:
         stack.push(i)
 
