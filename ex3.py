@@ -71,9 +71,12 @@ def measure_performance(stack_class, num_trials=100, num_tasks=10000):
 array_stack_times = measure_performance(ArrayStack)
 linked_list_stack_times = measure_performance(LinkedListStack)
 
-print("Array stack time: ", array_stack_times)
-print("Linkedlist stack time: ", linked_list_stack_times)
+# Print results
+array_avg_time = sum(array_stack_times) / len(array_stack_times)
+linked_list_avg_time = sum(linked_list_stack_times) / len(linked_list_stack_times)
 
+print(f"Array-based Stack: {array_avg_time:.6f} seconds")
+print(f"Linked List-based Stack: {linked_list_avg_time:.6f} seconds")
 
 # Q5 Distributions for each implementation 
 plt.plot(sorted(array_stack_times), label='Array Stack')
